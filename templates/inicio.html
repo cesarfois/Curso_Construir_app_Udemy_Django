@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inicio proyecto</title>
+</head>
+<body>
+<h2>Mi proyecto</h2>
+
+{{ el_titulo }}<br>
+{{request.user}}<br>
+<hr/>
+<br/>
+
+
+<form method="POST" action="">{% csrf_token %}
+   {{ el_form.as_p }}
+   <input type="submit" value="Registrame">
+</form>
+
+
+</body>
+</html>
