@@ -20,6 +20,7 @@ class RegModelForm(forms.ModelForm):
         return nome
 
 
-class RegForm(forms.Form):
-    nome = forms.CharField(max_length=100)
+class ContactForm(forms.Form):
+    nome = forms.CharField(required=False)
     email = forms.EmailField()
+    mensaje = forms.CharField(widget=forms.Textarea)
