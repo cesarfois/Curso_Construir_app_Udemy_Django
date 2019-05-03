@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>inicio proyecto</title>
-</head>
-<body>
-<h2>Mi proyecto</h2>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
-{{ el_titulo }}<br>
-{{request.user}}<br>
+
+{{ el_titulo }}
 <hr/>
-<br/>
 
-<form method="POST" action="">{% csrf_token %}
-   {{ form.as_p }}
-   <input type="submit" value="Registrame">
-</form>
-
-
-</body>
-</html>
+{% block content %}
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        {% if titulo %}
+        <h1 class="text-align-center">{{ titulo }}</h1>
+        {% endif %}
+        <form method="POST" action="">{% csrf_token %}
+           {{ form|crispy }}
+           <input class='btn btn-primary' type="submit" value="Registrame">
+        </form>
+            </div>
+</div>
+{% endblock %}
