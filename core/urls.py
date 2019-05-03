@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
+from django.urls import path, include
 
 from boletin import views
 from .views import about
@@ -25,7 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('contact/', views.contact, name='contact'),
     path('', views.inicio, name='inicio'),
-    path('about/', about, name='about')
+    path('about/', about, name='about'),
+    path('accounts/', include('registration.backends.default.urls'))
 ]
 
 if settings.DEBUG:
