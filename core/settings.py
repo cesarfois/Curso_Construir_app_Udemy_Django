@@ -28,15 +28,26 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 'prtidocuware@gmail.com'
+EMAIL_HOST_USER = 'docuware'
+EMAIL_HOST_PASSWORD = 587
+EMAIL_USE_TLS = True
+
+
 # Application definition
 
 INSTALLED_APPS = [
+    # apps django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # apps terceiros
+    'crispy_forms',
+    # mis apps
     'boletin',
 ]
 
@@ -51,6 +62,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'core.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -119,3 +132,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static_pro', 'static'),
+    ]
+
+STATIC_ROOT = os.path.join('static_env', 'static_root')
+MEDIA_ROOT = os.path.join('static_env', 'media_root')
